@@ -18,66 +18,54 @@ Rinc&oacute;n de Romos, Aguascalintes.<br />
 <strong><?php echo mdate("%d-%m-%Y"); ?></strong>
                 </td>
             </tr>
-            <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2"><img src="images/transparent_break.png" height="5px"> </td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Nombre:</strong> <i><?php echo $c['nombre']; ?> <?php echo $c['apellidos']; ?> <strong>(<?php echo $c['idcliente']; ?>)</strong></i></td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Fecha de nacimiento:</strong> <i><?php echo $c['fecnac']; ?></i> 
+                <td colspan="2"><small><strong>Fecha de nacimiento:</strong> <i><?php echo $c['fecnac']; ?></i> 
                     <strong>Sexo:</strong> <i><?php echo $c['sexo']; ?></i> 
-                    <strong>Ocupaci&oacute;n:</strong> <i><?php echo $c['ocupacion']; ?></i> 
+                    <strong>Ocupaci&oacute;n:</strong> <i><?php echo $c['ocupacion']; ?></i> </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Domicilio:</strong> <i><?php echo $c['direccion']; ?></i> 
+                <td colspan="2"><small><strong>Domicilio:</strong> <i><?php echo $c['direccion']; ?></i> <strong>Colonia:</strong> <i><?php echo $c['colonia']; ?></i>  </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Colonia:</strong> <i><?php echo $c['colonia']; ?></i> 
-                    <strong>C.P.:</strong> <i><?php echo $c['cp']; ?></i> 
+                <td colspan="2"><small><strong>C.P.:</strong> <i><?php echo $c['cp']; ?></i> <strong>Ciudad:</strong> <i><?php echo $c['ciudad']; ?></i> 
+                    <strong>Estado:</strong> <i><?php echo $c['estado']; ?></i>  </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Ciudad:</strong> <i><?php echo $c['ciudad']; ?></i> 
-                    <strong>Estado:</strong> <i><?php echo $c['estado']; ?></i> 
+                <td colspan="2"><small><strong>Telefonos:</strong> <i><?php echo $c['telefono1']; ?></i>  <i><?php echo $c['telefono2']; ?></i>  <strong>Correo Electronico:</strong> <i><?php echo $c['email']; ?></i>  </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Telefonos:</strong> <i><?php echo $c['telefono1']; ?></i>  <i><?php echo $c['telefono2']; ?></i> 
+                <td colspan="2"><img src="images/transparent_break.png" height="5px"> </td>
+            </tr>
+            <tr>
+            <td colspan="2"><small><strong>&iquest;Padece alg&uacute;n tipo de enfermedad, cirug&iacute;as, fracturas?:</strong> <i><?php echo $c['enfermedad']; ?></i> </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><strong>Correo Electronico:</strong> <i><?php echo $c['email']; ?></i> 
+            <td colspan="2"><small><strong>En caso de accidente avisar a:</strong> <i><?php echo $c['avisar']; ?></i> </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
-            </tr>
-            <tr>
-            <td colspan="2"><strong>&iquest;Padece alg&uacute;n tipo de enfermedad, cirug&iacute;as, fracturas?:</strong> <i><?php echo $c['enfermedad']; ?></i> 
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">&nbsp;</td>
-            </tr>
-            <tr>
-            <td colspan="2"><strong>En caso de accidente avisar a:</strong> <i><?php echo $c['avisar']; ?></i> 
-                </td>
-            </tr>
-            <tr>
-            <td colspan="2"><strong>Parentesco:</strong> <i><?php echo $c['aviparen']; ?></i>  
+            <td colspan="2"> <small><strong>Parentesco:</strong> <i><?php echo $c['aviparen']; ?></i>  
                 <strong>Tel:</strong> <i><?php echo $c['avitel']; ?></i> 
-                <strong>Domicilio:</strong> <i><?php echo $c['avidom']; ?></i> 
+                <strong>Domicilio:</strong> <i><?php echo $c['avidom']; ?></i>  </small>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">&nbsp;</td>
+                <td colspan="2"><img src="images/transparent_break.png" height="5px"> </td>
             </tr>
             <tr>
                 <td colspan="2">
                     <strong>El gimnasio se compromete a:</strong>
+                    <small>
                     <ul>
                         <li>Mantener sus instalaciones en perfecto estado para su uso.</li>
                         <li>Disipar cualquier tipo de duda  de su entrenamiento por medio de la recepci&oacute;n, entrenador o asesor nutricional.</li>
@@ -87,14 +75,15 @@ Rinc&oacute;n de Romos, Aguascalintes.<br />
                         <li>Brindar un servicio y ambiente grato por empleados durante su estancia en el gimnasio.</li>
                         <li>Adem&aacute;s de contar con  un Asesor Nutricional avalado por: AFFSLP, CODEME, IFBB, COM, CONADE y FMFF para aumento de masa muscular a nivel personal, competitivo, reducción de peso en perdida grasa o por salud. (pregunte en recepción por el costo adicional)</li>
                     </ul>
-                    <br />
+                    </small>
                     <strong>Al ingreso del gimnasio el socio o visitante se compromete a: </strong>
+                    <small>
                     <ul>
                         <li>Registrarse al entrar.</li>
                         <li>No presentarse a entrenar en un estado inapropiado o bajo un estado inconveniente (alcohol, drogas etc.).</li>
                         <li>Mostrar respeto a sus compañeros, personal e instalaciones.</li>
                         <li>Utilizar calzado y ropa deportiva.</li>
-                        <li>No llevar menores de 12 años durante su entrenamiento (mayores de 12  generara pago de visita).</li>
+                        <li>No llevar menores de 12 años durante su entrenamiento (mayores de 12  generar&aacute; pago de visita).</li>
                         <li>No utilizar un vocabulario soez.</li>
                         <li>Usar toalla durante su entrenamiento en aparatos de peso integrado, libre y cardiovascular.</li>
                         <li>No azotar los aparatos,  pesos libres y no hacer de ellos un uso personal.</li>
@@ -103,14 +92,11 @@ Rinc&oacute;n de Romos, Aguascalintes.<br />
                         <li>Respetar la indicaciones establecidas en el gimnasio.</li>
                         <li>Informar a recepción y entrenador de fracturas, cirugías, esguinces, o cualquier tipo de enfermedad personal (ya que el gimnasio no se hace responsable de accidentes de cualquier tipo durante su estancia).</li>
                     </ul>
-                    <br />
-                    <p>Se le invita a cumplir estas indicaciones ya que cualquier violación o falta a estos estatutos ser&aacute; motivo de  cancelaci&oacute;n de la inscripci&oacute;n, pago de visita o mensualidad del socio o visitante y por consiguiente negarle el acceso a las instalaciones.</p>
+                    </small>
+                    <p> <small>Se le invita a cumplir estas indicaciones ya que cualquier violación o falta a estos estatutos ser&aacute; motivo de  cancelaci&oacute;n de inscripci&oacute;n, pago de visita o mensualidad del socio o visitante y por lo tanto negarle el acceso a las instalaciones. </small></p>
 
-                    <p>Hago constar que los datos proporcionados para mi inscripción son legítimos, as&iacute;  mismo me comprometo a cumplir todas las disposiciones que establece <strong>RAMOS GYM</strong></p>
+                    <p> <small>Hago constar que los datos proporcionados para mi inscripción son legítimos, as&iacute;  mismo me comprometo a cumplir todas las disposiciones que establece <strong>RAMOS GYM</strong> </small></p>
                 </td>
-            </tr>
-            <tr>
-                <td colspan="2">&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="2">&nbsp;</td>

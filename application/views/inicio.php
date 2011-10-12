@@ -44,6 +44,7 @@
 		
 		<!-- jQuery Configuration -->
 		<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery-dfn.js"></script>
                 <script type="text/javascript">
                     function popup (titulo, pagina) {
                         var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=650, height=450, top=85, left=140";
@@ -67,6 +68,21 @@
                             });
 
                             $("#dia_ficha").dialog({
+                                autoOpen: false,
+                                modal: true,
+                                height: 530,
+                                width: 800,
+                                close:  function(event, ui) {
+                                    $("#editnota").die();
+                                    $("#formNota").die();
+                                    $("#btn_ven").die();
+                                    $("#formVen").die();
+                                    $("#btn_foto").die();
+                                    $("#btn_editar").die();
+                                }
+                            });
+
+                            $("#dia_editar").dialog({
                                 autoOpen: false,
                                 modal: true,
                                 height: 530,
@@ -97,7 +113,7 @@
 		  
 			<!-- Sidebar Profile links -->
 			<div id="profile-links">
-				<a href="#">Ulises</a> | <a href="index.php/log/out" title="Salirt">Salir</a>
+				<a href="index.php/log/out" title="Salirt">Salir</a>
 			</div>        
 			
 			<ul id="main-nav">  <!-- Accordion Menu -->
@@ -134,6 +150,7 @@
 	</div>
         
         <div id="dia_ficha" title="Ficha de Usuario"></div>
+        <div id="dia_editar" title="Editar Informacion del Socio"></div>
         </body>
   
 </html>

@@ -84,8 +84,11 @@ class Clientes extends CI_Controller {
         
         function ver($id)
         {
+            $this->load->library('session');
             $this->load->model("clientes_model");
+            $data["admin"] = ($this->session->userdata("idperfil")== 1) ? true:false;
             $data["c"] = $this->clientes_model->get_cliente_by_id($id);
+            $data['foto'] = (file_exists("./fotos/" . $data["c"]['idcliente'] . ".jpg")) ? $data["c"]['idcliente'] : "no";
             $this->load->view("ficha", $data);
         }
         
@@ -162,7 +165,38 @@ class Clientes extends CI_Controller {
             $this->load->model("clientes_model");
             $this->clientes_model->set_nota($idcliente);
             echo$this->input->post("nota");
-            echo '<br /><a href="' . base_url() . 'index.php/clientes/editnota/' . $idcliente . '" class="button" id="editnota">Editar Nota</a>';
+            echo '<br /><a href="' . base_url() . 'index.php/clientes/modnota/' . $idcliente . '" class="button" id="editnota">Editar Nota</a>';
+        }
+        
+        function cambiarven($idcliente)
+        {
+            $this->load->model("clientes_model");
+            $v = $this->clientes_model->get_vence($idcliente);
+            echo '<form id="formVen" action="' . base_url() . 'index.php/clientes/guardarven/' . $idcliente . '">';
+            echo '<input type="input" name="vence" value="' . $v['vence'] . '" /><br />';
+            echo '<input type="submit" value="Guardar Fecha" /></form>';
+        }
+        
+        function guardarven($idcliente) {
+            
+            $this->load->model("clientes_model");
+            $this->clientes_model->set_vence($idcliente);
+            echo$this->input->post("vence");
+            echo '<br /><a href="' . base_url() . 'index.php/clientes/cambiarven/' . $idcliente . '" class="button" id="btn_ven">Editar Vencimiento</a>';
+        }
+        
+        function formeditar ($idcliente)
+        {
+            $this->load->model("clientes_model");
+            $data['edocivil'] = $this->clientes_model->get_edocivil();
+            $data["cliente"] = $this->clientes_model->get_cliente_by_id($idcliente);
+            $this->load->view("editarsocio", $data);
+        }
+        
+        function editar($idcliente)
+        {
+            $this->load->model("clientes_model");
+            $in = $this->clientes_model->set_cliente_by_id($idcliente);
         }
 }
 

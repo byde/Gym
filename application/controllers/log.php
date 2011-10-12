@@ -5,20 +5,21 @@ class Log extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->library('session');
 	}
 
 	function index()
 	{
-		$this->load->library('session');
-		if($this->session->userdata("user_id") > 0)
-			$this->load->view('welcome_message');
-		else
-			$this->load->view('login');
+		$this->load->view('login');
+	}
+	
+	function lite()
+	{
+		$this->load->view('login-lite');
 	}
 	
 	function in ($user, $pass){
 		$this->load->model('Log_model');
-		$this->load->library('session');
 		if ($this->session->userdata("tries") == 5)
 			echo "-1";
 		else {
@@ -37,11 +38,15 @@ class Log extends CI_Controller {
 	
 	function out ()
 	{
-		$this->load->library('session');
 		$this->load->helper('url');
 		$this->session->sess_destroy();
 		header("Location: " . base_url() . "index.php");
 	}
+        
+        function is()
+        {
+            echo ($this->session->userdata("idusuario") > 0) ? "true" : "false";
+        }
 }
 
 /* End of file welcome.php */

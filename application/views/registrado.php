@@ -27,6 +27,9 @@ $(function(){
                                     
                                     <span class="green">Usuario Agregado Correctamente</span>
                                     <div class="row">
+    	<label>ID: </label>
+        <?php echo $c['idcliente'] ?>
+    </div><div class="row">
     	<label>Nombre: </label>
         <?php echo $c['nombre'] ?>
     </div><div class="row">

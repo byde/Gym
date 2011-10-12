@@ -16,7 +16,17 @@ class Clientes_model extends CI_Model {
     }
 
     function get_clientes_busqueda ($b){
-        $bus = sprintf(" WHERE nombre like '%s' OR apellidos like '%s' OR telefono1 like '%s'", "%" . $b . "%", "%" . $b . "%", "%" . $b . "%");
+        $b = urldecode($b);
+      $palabras = explode(" ", $b);
+        $bus = sprintf(" WHERE (telefono1 like '%s')", 
+                "%" . $b . "%");
+        foreach($palabras as $p) :
+            $bus .= sprintf(" OR (CONCAT(nombre, ' ', apellidos) like '%s')", 
+                    "%" . $p . "%");
+        endforeach;
+
+   
+        //$bus = sprintf(" WHERE MATCH (nombre, apellidos, telefono1) AGAINST ('%s')", $b);
         $sql = sprintf("SELECT * FROM clientes %s LIMIT 0,30", $bus);
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0)
@@ -34,6 +44,7 @@ class Clientes_model extends CI_Model {
                     $c['fecnac'] = "No especificado";
                 else
                     $c['fecnac'] = mdate("%d-%m-%Y",mysql_to_unix($c['fecnac']));
+                    $c['fecnac2'] = $c['fecnac'];
                 $c['sexo'] = ($c['sexo'] == 0) ? "Masculino" : "Femenino";
                 $c['ocupacion'] = ($c['ocupacion'] == "" || is_null($c['ocupacion'])) ? "No especificado" : $c['ocupacion'];
                 $c['direccion'] = ($c['direccion'] == "" || is_null($c['direccion'])) ? "No especificado" : $c['direccion'];
@@ -66,6 +77,7 @@ class Clientes_model extends CI_Model {
 //var_dump($data);
             $this->db->set($this->input->post());
             $this->db->set("fecreg", "DATE(NOW())", FALSE);
+            $this->db->set("vence", "DATE('" . date("%Y-%m-%d",strtotime( '-1 days' )) . "')", FALSE);
             $this->db->insert('clientes');
             if ($this->db->affected_rows() > 0)
                     return true;
@@ -114,6 +126,32 @@ class Clientes_model extends CI_Model {
             $this->db->where('idcliente', $id);
             $this->db->update('clientes', $this->input->post()); 
         }
+        
+        function set_vence($id)
+        {
+            $this->db->where('idcliente', $id);
+            $this->db->update('clientes', $this->input->post()); 
+        }
+        
+
+        function get_vence($id)
+        {
+            $q = sprintf("SELECT vence FROM clientes WHERE idcliente = %s", $id);
+            $query = $this->db->query($q);
+            $row = $query->row_array();
+            return $row;
+        }
+        
+	function set_cliente_by_id($idcliente)
+	{
+//var_dump($data);
+            $this->db->set($this->input->post());
+            $this->db->where("idcliente", $idcliente);
+            $this->db->update('clientes');
+            if ($this->db->affected_rows() > 0)
+                    return true;
+            return false;
+	}
 
 /*
 	function set_consultorio_by_id($id)
